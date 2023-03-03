@@ -7,14 +7,16 @@ RUN apt-get update && \
     autoconf \
     automake \
     build-essential \
+    checkinstall \
     cmake \
     curl \
     git \
     git-lfs \
     jq \
     make \
-    mason \
+    meson \
     ninja-build \
+    tree \
     vim && \
     apt-file update
 

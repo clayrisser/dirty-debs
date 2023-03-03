@@ -8,6 +8,10 @@ include shared.mk
 work:
 	@docker run -it --volume $(CURDIR)/work:/work --workdir /work --rm --entrypoint /bin/sh debian:bullseye /work/work.sh
 
+.PHONY: fix-permissions
+fix-permissions: | sudo
+	@$(SUDO) $(CHOWN) -R $(USER):$(USER) .
+
 %/build:
 	@$(MAKE) -sC $* build ARGS=$(ARGS)
 
